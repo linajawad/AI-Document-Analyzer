@@ -158,3 +158,13 @@ Potential future enhancements include:
 **Lina Jawad**
 
 GitHub: `https://github.com/linajawad`
+## 📸 Screenshots
+
+### Main Interface
+![Main Interface](screenshots/main-interface.png)
+
+### AI Analysis
+![AI Analysis](screenshots/ai-analysis.png)
+
+### Document Analysis
+![Document Analysis](screenshots/document-analysis.png)
