@@ -2,7 +2,7 @@
 
 An AI-powered document analysis application built with **Python, Streamlit, and Google Gemini**.
 
-The application allows users to upload a PDF document, extract its text, and use Gemini AI to generate a concise analysis including a summary, key points, important conclusions, and the likely document type.
+The application allows users to upload a PDF document, extract its readable text, and use Gemini AI to generate a concise analysis including a summary, key points, important conclusions, and the likely document type.
 
 ## 🚀 Features
 
@@ -16,6 +16,7 @@ The application allows users to upload a PDF document, extract its text, and use
   * Important information and conclusions
   * Likely document type
 * Display extracted text before AI analysis
+* Show document page count and extracted character count
 * Handle PDFs with no readable text
 * Secure API key management using environment variables
 
@@ -34,7 +35,7 @@ User uploads PDF
        ↓
 Streamlit receives the file
        ↓
-pypdf extracts the document text
+pypdf extracts readable text
        ↓
 Extracted text is sent to Gemini
        ↓
@@ -48,11 +49,19 @@ AI-generated analysis is displayed
 ```text
 AI-Document-Analyzer/
 │
+├── screenshots/
+│   ├── ai-analysis.png
+│   ├── document-analysis.png
+│   └── main-interface.png
+│
 ├── app.py
 ├── requirements.txt
 ├── .gitignore
-└── .env              # Local only — not committed to Git
+├── .env.example
+└── README.md
 ```
+
+> `.env` is created locally and is intentionally excluded from Git.
 
 ## ⚙️ Installation
 
@@ -83,13 +92,17 @@ pip install -r requirements.txt
 
 ### 4. Configure the Gemini API key
 
-Create a `.env` file in the project root:
+Create a `.env` file in the project root.
 
-```env
+You can use `.env.example` as a template:
+
+```text
 GEMINI_API_KEY=your_api_key_here
 ```
 
-The `.env` file is excluded from Git using `.gitignore` so the API key is not committed to the repository.
+Replace the placeholder with your Gemini API key.
+
+The `.env` file is excluded from Git using `.gitignore`, so the API key is not committed to the repository.
 
 ### 5. Run the application
 
@@ -97,7 +110,13 @@ The `.env` file is excluded from Git using `.gitignore` so the API key is not co
 streamlit run app.py
 ```
 
-The application will open in your browser at:
+If the Streamlit launcher has a local environment issue, you can also run:
+
+```bash
+python -m streamlit run app.py
+```
+
+The application will open at:
 
 ```text
 http://localhost:8501
@@ -107,9 +126,10 @@ http://localhost:8501
 
 1. Upload a PDF document.
 2. Review the extracted text.
-3. Click **Analyze Document**.
-4. Gemini processes the document.
-5. The application displays the AI-generated analysis.
+3. Review the page and character counts.
+4. Click **Analyze Document**.
+5. Gemini processes the document.
+6. The application displays the AI-generated analysis.
 
 ## 🔐 Security
 
@@ -131,7 +151,7 @@ __pycache__/
 This project demonstrates practical experience with:
 
 * AI API integration
-* Python development
+* Python application development
 * Document processing
 * PDF text extraction
 * Prompt-based AI analysis
@@ -139,18 +159,19 @@ This project demonstrates practical experience with:
 * Streamlit application development
 * Git and GitHub workflow
 
-It was built as part of an AI automation and technical portfolio to demonstrate the ability to connect an AI model to a functional application.
+It was built as part of an AI automation and technical portfolio to demonstrate the ability to connect an AI model to a functional document-processing application.
 
 ## 📌 Future Improvements
 
 Potential future enhancements include:
 
 * Support for additional document formats
-* Better handling of scanned PDFs using OCR
+* OCR support for scanned PDFs
 * Structured AI output with separate sections for each analysis category
 * Downloadable analysis reports
 * Document history and comparison
-* Improved error handling for API failures
+* Improved handling of API failures
+* Document storage and search
 * Deployment as a public Streamlit application
 
 ## 👩‍💻 Author
@@ -158,13 +179,17 @@ Potential future enhancements include:
 **Lina Jawad**
 
 GitHub: `https://github.com/linajawad`
+
 ## 📸 Screenshots
 
 ### Main Interface
+
 ![Main Interface](screenshots/main-interface.png)
 
 ### AI Analysis
+
 ![AI Analysis](screenshots/ai-analysis.png)
 
 ### Document Analysis
+
 ![Document Analysis](screenshots/document-analysis.png)
